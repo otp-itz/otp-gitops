@@ -53,7 +53,7 @@ patches:
   patch: |-
     - op: add
       path: /spec/source/repoURL
-      value: https://github.com/otp-itz/otp-gitops-clusters.git
+      value: https://github.com/one-touch-provisioning/otp-gitops-clusters.git
     - op: add
       path: /spec/source/targetRevision
       value: master
