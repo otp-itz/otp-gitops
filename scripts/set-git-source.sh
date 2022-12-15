@@ -27,11 +27,11 @@ GIT_GITOPS_POLICIES_BRANCH=${GIT_GITOPS_POLICIES_BRANCH:-${GIT_BRANCH}}
 HELM_REPOURL=${HELM_REPOURL:-https://charts.cloudnativetoolkit.dev}
 
 echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS} on branch ${GIT_GITOPS_BRANCH}"
-echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_INFRA} on branch ${GIT_GITOPS_INFRA_BRANCH}"
-echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_SERVICES} on branch ${GIT_GITOPS_SERVICES_BRANCH}"
-echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_APPLICATIONS} on branch ${GIT_GITOPS_APPLICATIONS_BRANCH}"
-echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_CLUSTERS} on branch ${GIT_GITOPS_CLUSTERS_BRANCH}"
-echo "Setting kustomization patches to ${GIT_BASEURL}/${GIT_ORG}/${GIT_GITOPS_POLICIES} on branch ${GIT_GITOPS_POLICIES_BRANCH}"
+echo "Setting kustomization patches to ${GIT_BASEURL}/one-touch-provisioning/${GIT_GITOPS_INFRA} on branch ${GIT_GITOPS_INFRA_BRANCH}"
+echo "Setting kustomization patches to ${GIT_BASEURL}/one-touch-provisioning/${GIT_GITOPS_SERVICES} on branch ${GIT_GITOPS_SERVICES_BRANCH}"
+echo "Setting kustomization patches to ${GIT_BASEURL}/one-touch-provisioning/${GIT_GITOPS_APPLICATIONS} on branch ${GIT_GITOPS_APPLICATIONS_BRANCH}"
+echo "Setting kustomization patches to ${GIT_BASEURL}/one-touch-provisioning/${GIT_GITOPS_CLUSTERS} on branch ${GIT_GITOPS_CLUSTERS_BRANCH}"
+echo "Setting kustomization patches to ${GIT_BASEURL}/one-touch-provisioning/${GIT_GITOPS_POLICIES} on branch ${GIT_GITOPS_POLICIES_BRANCH}"
 
 
 find ${SCRIPTDIR}/../0-bootstrap/hub -name '*.yaml' -print0 |
