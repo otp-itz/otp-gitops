@@ -5,7 +5,7 @@ resources:
  - argocd/consolenotification.yaml
 
  # Console link
- - argocd/consolelink.yaml
+#  - argocd/consolelink.yaml
 
  # External Secrets
  - argocd/rbac/rbac-external-secrets.yaml
