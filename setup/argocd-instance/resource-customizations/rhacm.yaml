@@ -8,13 +8,15 @@ data:
     hs = {}
     generation = obj.metadata.generation
     if obj.status ~= nil then
+      hs.message = obj.status.phase
       if obj.status.phase == "Running" then
         hs.status = "Healthy"
-        hs.message = obj.status.phase
         return hs
+      end
+    else
+      hs.status = "Progressing"
     end
     hs.status = "Progressing"
-    hs.message = obj.status.phase
     return hs
 
   resource.customizations.health.hive.openshift.io_ClusterDeployment: |
