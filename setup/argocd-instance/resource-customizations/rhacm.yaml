@@ -9,6 +9,7 @@ data:
     generation = obj.metadata.generation
     if obj.status ~= nil then
       hs.message = obj.status.phase
+      hs.status = "Progressing"
       if obj.status.phase == "Running" then
         hs.status = "Healthy"
         return hs
