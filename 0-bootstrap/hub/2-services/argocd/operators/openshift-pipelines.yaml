@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: services
   source:
-    path: operators/openshift-pipelines
+    path: operators/openshift-pipelines/overlays/latest
   syncPolicy:
     automated:
       prune: true
