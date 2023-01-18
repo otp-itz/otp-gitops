@@ -1,5 +1,6 @@
 resources:
  ## Create RHACM Credentials
+ - argocd/clusterclaims/azure-small-azure-small-cluster.yaml
  ## Include any Private or Public Cloud Providers you may have
  ## Examples have been provided for both SealedSecrets and leveraging an external Key Store via ExternalSecrets Operator
  #- argocd/infra/providers/rhacm/aws/sealed-secrets/aws.yaml
