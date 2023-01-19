@@ -26,6 +26,7 @@ resources:
  ## Cluster claims pipeline for Backstage support
 - argocd/pipelines/clusterclaim-tasks.yaml
 - argocd/pipelines/clusterclaim-pipeline.yaml
+- argocd/pipelines/clusterclaim-trigger.yaml
 
 patches:
 - target:
