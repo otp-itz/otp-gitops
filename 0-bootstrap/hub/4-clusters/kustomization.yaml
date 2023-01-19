@@ -22,7 +22,6 @@ resources:
 
  ## ClusterClaims
  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
- - argocd/clusterclaims/azure-small-azure-small-cluster.yaml
  ## Example : - argocd/clusterclaims/<env>/<cloud>/<clusterclaimname.yaml> 
  #- argocd/clusterclaims/dev/aws/project-simple.yaml
  #- argocd/clusterclaims/prod/aws/project-simple.yaml
