@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: azure-small-cute-cluster-3
+  annotations:
+    argocd.argoproj.io/sync-wave: "360"
+  labels:
+    gitops.tier.layer: clusters
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: clusters
+  source:
+    path: clusterclaims
+    helm:
+      values: |
+        clusterClaimName: small-cute-cluster-3
+        clusterPoolName: azure-small-clusterpool
+        managedCluster: 
+          status: "false"
