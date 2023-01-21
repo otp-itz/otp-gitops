@@ -21,6 +21,7 @@ resources:
  #- argocd/clusterpools/prod/aws/aws-prod-pool/aws-prod-pool.yaml 
 
  ## ClusterClaims
+ - argocd/clusterclaims/azure-small-test-2.yaml
  - argocd/clusterclaims/azure-large-shared-cpd-cluster.yaml
  ## Example : - argocd/clusterclaims/<env>/<cloud>/<clusterclaimname.yaml> 
  #- argocd/clusterclaims/dev/aws/project-simple.yaml
