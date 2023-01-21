@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: namespace-ansible-automation-platform
+  name: namespace-patch-operator
   namespace: openshift-gitops
   labels:
     gitops.tier.layer: infra
@@ -9,11 +9,11 @@ metadata:
     argocd.argoproj.io/sync-wave: "100"
 spec:
   destination:
-    namespace: ansible-automation-platform
+    namespace: patch-operator
     server: https://kubernetes.default.svc
   project: infra
   source:
-    path: namespaces/ansible-automation-platform
+    path: namespaces/patch-operator
   syncPolicy:
     automated:
       prune: true

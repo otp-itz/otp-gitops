@@ -87,8 +87,6 @@ spec:
   - group: ""
     kind: services
   - group: ""
-    kind: namespace
-  - group: ""
     kind: configmaps
   - group: ""
     kind: secrets
