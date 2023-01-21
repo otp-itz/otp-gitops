@@ -17,5 +17,5 @@ spec:
     path: otp-policies/openshift-data-foundation
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
