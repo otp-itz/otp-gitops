@@ -92,7 +92,8 @@ resources:
  #- argocd/instances/rhsso-integration-preprocessing-instance.yaml
  #- argocd/instances/rhsso-integration-argocd-instance.yaml
 
-
+ # RHCOP Patch operator
+ - argocd/operators/patch-operator.yaml
 patches:
 - target:
     group: argoproj.io
