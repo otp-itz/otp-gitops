@@ -77,6 +77,8 @@ resources:
  #- argocd/machine-configs/machine-configs-control-planes.yaml
  #- argocd/machine-configs/machine-configs-workers.yaml
 
+ # Patch operator
+ - argocd/namespaces/namespace-patch-operator.yaml
 patches:
 - target:
     group: argoproj.io
