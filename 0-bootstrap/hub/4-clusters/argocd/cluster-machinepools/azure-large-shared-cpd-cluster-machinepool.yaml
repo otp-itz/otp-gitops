@@ -4,11 +4,7 @@ metadata:
   name: azure-shared-cpd-cluster-machinepool
   annotations:
     argocd.argoproj.io/sync-wave: "361"
-  labels:
-    gitops.tier.layer: clusters
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
-  "redhat-cop.redhat.io/patch": |
+    "redhat-cop.redhat.io/patch": |
       spec:
         source:
           helm:
@@ -19,6 +15,10 @@ metadata:
               # used in clusterDeploymentRef
               cloud:
                 clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "shared-cpd-cluster").spec.namespace }}
+  labels:
+    gitops.tier.layer: clusters
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   syncPolicy:
     automated:
