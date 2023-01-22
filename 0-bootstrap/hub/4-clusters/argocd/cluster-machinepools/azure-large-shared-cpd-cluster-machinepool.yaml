@@ -31,4 +31,5 @@ spec:
   source:
     repoURL: https://github.com/otp-itz/otp-gitops-infra.git
     path: machinepools
-    helm: << values >>
+    helm:
+      values: << values >>
