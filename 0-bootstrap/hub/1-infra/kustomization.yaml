@@ -78,6 +78,7 @@ resources:
  #- argocd/machine-configs/machine-configs-workers.yaml
 
  # Patch operator
+ - argocd/rbac/rbac-patch-operator.yaml
  - argocd/namespaces/namespace-patch-operator.yaml
 patches:
 - target:
