@@ -32,7 +32,7 @@ resources:
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
 
  ## Machine pools for cluster claims and cluster deployments
- - argocd/cluster-machinepools/azure-large-shared-cpd-cluster-machinepool.yaml
+#  - argocd/cluster-machinepools/azure-large-shared-cpd-cluster-machinepool.yaml
 
  ### AWS
  #- argocd/clusters/cicd/aws/aws-cicd/aws-cicd.yaml
