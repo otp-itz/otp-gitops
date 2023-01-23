@@ -28,6 +28,7 @@ resources:
 - argocd/pipelines/clusterclaim-pipeline.yaml
 - argocd/pipelines/clusterclaim-trigger.yaml
 
+- argocd/pipelines/machinepool-pipeline-sa-crb-view.yaml
 - argocd/pipelines/machinepool-clusterclaim-pipeline.yaml
 - argocd/pipelines/machinepool-clusterclaim-trigger.yaml
 patches:
