@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: azure-shared-cpd-cluster-machinepool
+  annotations:
+    argocd.argoproj.io/sync-wave: "361"
+  labels:
+    gitops.tier.layer: clusters
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: clusters
+  source:
+    repoURL: https://github.com/otp-itz/otp-gitops-infra.git
+    path: machinepools
+    helm:
+      values: |
+        cloudProvider:
+          name: "azure" # aws, azure, ibmcloud or vsphere
+          managed: false # for roks, aro, rosa set to true
+        # used in clusterDeploymentRef
+        cloud:
+          clusterName: azure-large-clusterpool-lflpn
