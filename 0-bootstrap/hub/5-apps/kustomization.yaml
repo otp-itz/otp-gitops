@@ -24,6 +24,7 @@ resources:
  #- argocd/cloudpaks/cp4i/cp4i.yaml
 
  ## Cluster claims pipeline for Backstage support
+- argocd/pipelines/pipelineruns-ns-access.yaml
 - argocd/pipelines/clusterclaim-tasks.yaml
 - argocd/pipelines/clusterclaim-pipeline.yaml
 - argocd/pipelines/clusterclaim-trigger.yaml
