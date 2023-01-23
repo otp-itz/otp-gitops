@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: machinepools-pipeline/clusterclaim/trigger
+    path: machinepools-pipeline/trigger/clusterclaim
   syncPolicy:
     automated:
       prune: false
