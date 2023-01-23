@@ -81,7 +81,6 @@ resources:
  - argocd/rbac/rbac-patch-operator.yaml
  - argocd/namespaces/namespace-patch-operator.yaml
 
- - argocd/namespaces/namespace-pipelineruns.yaml
 patches:
 - target:
     group: argoproj.io
