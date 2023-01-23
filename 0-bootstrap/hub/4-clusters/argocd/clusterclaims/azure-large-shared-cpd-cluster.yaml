@@ -21,7 +21,7 @@ spec:
     path: clusterclaims
     helm:
       values: |
-        clusterClaimName: shared-cpd-cluster
+        clusterClaimName: azure-shared-cpd-cluster
         clusterPoolName: azure-large-clusterpool
         managedCluster: 
           status: "false"
