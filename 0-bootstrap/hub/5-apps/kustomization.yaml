@@ -29,7 +29,7 @@ resources:
 - argocd/pipelines/clusterclaim-trigger.yaml
 
 - argocd/pipelines/machinepool-clusterclaim-pipeline.yaml
-
+- argocd/pipelines/machinepool-clusterclaim-trigger.yaml
 patches:
 - target:
     group: argoproj.io
