@@ -11,7 +11,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: gitops-repo-deploy
+    namespace: gitops-repo-deploy-pipeline
     server: https://kubernetes.default.svc
   project: applications
   source:
