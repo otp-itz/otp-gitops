@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: gitops-repo-deploy-pipeline
+    path: gitops-repo-deploy-pipeline/pipeline
   syncPolicy:
     automated:
       prune: false
