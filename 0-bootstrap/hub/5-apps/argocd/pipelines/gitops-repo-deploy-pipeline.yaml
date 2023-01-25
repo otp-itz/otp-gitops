@@ -1,23 +1,24 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-machinepool-pipeline-sa-crb-view
+  name: apps-cluster-claims-pipeline
   annotations:
-    argocd.argoproj.io/sync-wave: "550"
+    argocd.argoproj.io/sync-wave: "551"
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
   labels:
     gitops.tier.layer: applications
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: machinepools-pipeline
+    namespace: gitops-repo-deploy
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: machinepools-pipeline/
+    path: gitops-repo-deploy-pipeline
   syncPolicy:
     automated:
-      prune: true
+      prune: false
       selfHeal: true
     syncOptions:
     - CreateNamespace=true

@@ -23,14 +23,17 @@ resources:
  ## An example has been provided
  #- argocd/cloudpaks/cp4i/cp4i.yaml
 
- ## Cluster claims pipeline for Backstage support
+ ## Pipelines
+- argocd/pipelines/pipeline-sa-crb-view.yaml
+
 - argocd/pipelines/clusterclaim-tasks.yaml
 - argocd/pipelines/clusterclaim-pipeline.yaml
 - argocd/pipelines/clusterclaim-trigger.yaml
 
-- argocd/pipelines/machinepool-pipeline-sa-crb-view.yaml
 - argocd/pipelines/machinepool-clusterclaim-pipeline.yaml
 - argocd/pipelines/machinepool-clusterclaim-trigger.yaml
+
+- argocd/pipelines/gitops-repo-deploy-pipeline.yaml
 patches:
 - target:
     group: argoproj.io
