@@ -16,17 +16,3 @@ data:
   # These are globs, so a "*" will match all values.
   # If you omit groups/kinds/clusters then they will match all groups/kind/clusters.
   # NOTE: events.k8s.io and metrics.k8s.io are excluded by default
-  resource.exclusions: |
-    - apiGroups:
-      - tekton.dev
-      clusters:
-      - '*'
-      kinds:
-      - TaskRun
-      - PipelineRun
-    - apiGroups:
-      - internal.open-cluster-management.io
-      kinds:
-      - ManagedClusterInfo
-      clusters:
-      - '*'
