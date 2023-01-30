@@ -13,6 +13,8 @@ spec:
     automated:
       prune: false
       selfHeal: true
+    syncOptions:
+    - RespectIgnoreDifferences=true
   destination:
     namespace: openshift-gitops
     server: https://kubernetes.default.svc
@@ -28,5 +30,5 @@ spec:
   ignoreDifferences:
     - group: hive.openshift.io
       kind: ClusterClaim
-      jsonPointers:
-        - /metadata/annotations/cluster.open-cluster-management.io\/createmanagedcluster
+      jqPathExpressions:
+        - .metadata.annotations."cluster.open-cluster-management.io/createmanagedcluster"
