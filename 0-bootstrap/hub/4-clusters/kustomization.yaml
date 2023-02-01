@@ -21,7 +21,7 @@ resources:
  #- argocd/clusterpools/prod/aws/aws-prod-pool/aws-prod-pool.yaml 
 
  ## ClusterClaims
- - argocd/clusterclaims/azure-large-shared-cpd-cluster.yaml
+#  - argocd/clusterclaims/azure-large-shared-cpd-cluster.yaml
  ## Example : - argocd/clusterclaims/<env>/<cloud>/<clusterclaimname.yaml> 
  #- argocd/clusterclaims/dev/aws/project-simple.yaml
  #- argocd/clusterclaims/prod/aws/project-simple.yaml
@@ -32,7 +32,7 @@ resources:
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
 
  ## Machine pools for cluster claims and cluster deployments
- - argocd/cluster-machinepools/azure-shared-cpd-cluster-storage.yaml
+#  - argocd/cluster-machinepools/azure-shared-cpd-cluster-storage.yaml
 #  - argocd/cluster-machinepools/azure-large-shared-cpd-cluster-machinepool.yaml
 
  ### AWS
