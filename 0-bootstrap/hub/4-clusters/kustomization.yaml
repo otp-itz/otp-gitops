@@ -10,7 +10,7 @@ resources:
  #- argocd/infra/providers/rhacm/rhocm/sealed-secrets/rhocm.yaml 
 
  ## Local cluster enablement for Hypershift
- - argocd/local-cluster-enablement/import-hub.yaml
+#  - argocd/local-cluster-enablement/import-hub.yaml
 
  ## ClusterPools
  - argocd/clusterpools/azure/large.yaml
