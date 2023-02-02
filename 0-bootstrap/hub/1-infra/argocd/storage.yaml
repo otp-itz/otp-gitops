@@ -18,9 +18,9 @@ spec:
     path: storage
     helm:
       values: |
-          channel: ${CHANNEL}
+          channel: stable-4.12
           sizeGiB: 512
-          storageClass: ${STORCLASS}
+          storageClass: gp3-csi
           argo:
             namespace: openshift-gitops
             serviceAccount: openshift-gitops-otp-argocd-application-controller
