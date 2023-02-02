@@ -9,6 +9,9 @@ resources:
  #- argocd/infra/providers/rhacm/vsphere/sealed-secrets/vsphere.yaml
  #- argocd/infra/providers/rhacm/rhocm/sealed-secrets/rhocm.yaml 
 
+ ## Local cluster enablement for Hypershift
+ - argocd/local-cluster-enablement/import-hub.yaml
+
  ## ClusterPools
  - argocd/clusterpools/azure/large.yaml
  - argocd/clusterpools/azure/medium.yaml
