@@ -1,16 +1,17 @@
 #!/bin/bash
 
 ## Script to request infrastructure and storage nodes
-## Script to install OCS
+## Script to install ODF
 ## Based on Cloud-Native-Toolkit gitops production reference
 
 ## Requirements:
 ##
-## - A working OpenShift 4.7 cluster on aws/azure/vsphere
+## - A working OpenShift >4.8 cluster on aws/azure/vsphere
 ## - The oc command client
-## - Run this script under the multi-tenancy-gitops git structure
+## - Run this script under the otp-gitops git structure
 ##
 
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 [[ -n "${DEBUG:-}" ]] && set -x
 
 pushd () {
@@ -22,31 +23,30 @@ popd () {
 }
 
 set +e
-#oc version --client | grep '4.7\|4.8'
-oc version --client | grep -E '4.[7-9].[0-9]|4.[1-9][0-9].[0-9]|4.[1-9][0-9][0-9].[0-9]'
+oc version --client | grep '4.9\|4.10\|4.11\|4.12' >/dev/null 2>&1
 OC_VERSION_CHECK=$?
 set -e
 if [[ ${OC_VERSION_CHECK} -ne 0 ]]; then
-    echo "Please use oc client version 4.7 or 4.8 download from https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/ "
+    echo "Please use oc client version > 4.10 download from https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/stable/ "
 fi
 
-# Check whether in GIT multi-tenancy-gitops
-echo ${SCRIPTDIR}
+# Check whether in GIT otp-gitops
+
 pushd ${SCRIPTDIR}/..
 
 if [[ -d "0-bootstrap" ]]; then
     echo "Finding 0-bootstrap directory."
 else
-    echo "Cannot ensure that you are in multi-tenancy-gitops or its copy"
+    echo "Cannot ensure that you are in otp-gitops or its copy"
     exit 100
 fi
 
 popd
 
-# Check whether OpenShift is connected
+# Check if OpenShift is connected
 
 set +e
-if oc cluster-info>/dev/null 2>&1; then
+if oc cluster-info > /dev/null 2>&1; then
     echo "Cluster is connected"
 else
     echo "Not connected to a cluster"
@@ -54,11 +54,9 @@ else
 fi
 set -e
 
-# uncomment the kustomize.yaml - which one?
-
 echo "Applying Infrastructure updates"
 
-pushd ${SCRIPTDIR}/../0-bootstrap/single-cluster/1-infra
+pushd ${SCRIPTDIR}/../0-bootstrap/hub/1-infra
 
 ocpversion=$(oc get clusterversion version | grep -v NAME | awk '{print $2}')
 a=( ${ocpversion//./ } )
@@ -72,9 +70,10 @@ else
 fi
 
 infraID=$(oc get -o jsonpath='{.status.infrastructureName}' infrastructure cluster)
-platform=$(echo "${installconfig}" | grep -A1 "^platform:" | grep -v "platform:" | cut -d":" -f1 | xargs)
+platform=$(echo "${installconfig}" | grep -A1 "platform:" | grep -v "platform:" | tail -1 | cut -d":" -f1 | xargs)
 shopt -s extglob
-if [[ $platform == @(aws|azure|vsphere|ibmcloud) ]]; then
+
+if [[ $platform == @(aws|azure|vsphere) ]]; then
     echo "Platform ${platform} is valid"
 else
     echo "Supported platform is not found"
@@ -119,38 +118,37 @@ else
 fi
 # platform=$(oc get -o jsonpath='{.status.platform}' infrastructure cluster | tr [:upper:] [:lower:])
 
-sed -i.bak '/machinesets.yaml/s/^#//g' kustomization.yaml
-rm kustomization.yaml.bak
-
+sed -i '' -e '/machinesets.yaml/s/^#//g' kustomization.yaml
+    
 # edit argocd/machinesets.yaml
-sed -i'.bak' -e "s#\${PLATFORM}#${platform}#" argocd/machinesets.yaml
-sed -i'.bak' -e "s#\${MANAGED}#${managed}#" argocd/machinesets.yaml
-sed -i'.bak' -e "s#\${INFRASTRUCTURE_ID}#${infraID}#" argocd/machinesets.yaml
+echo " -  Updating machinesets"
+
+# spacings are intended 
+sed -i '' -e '/cloudProvider:/ {' -e 'n; s/.*name.*$/            name: '${platform}'/' -e '}'  argocd/machinesets.yaml
+sed -i '' -e '/cloudProvider:/ {' -e 'n;n; s/.*managed.*$/            managed: '${managed}'/' -e '}'  argocd/machinesets.yaml
+sed -i '' -e 's#.*infrastructureId.*$#          infrastructureId: '${infraID}'#' argocd/machinesets.yaml
+
 if [[ "${platform}" == "vsphere" ]]; then
-    sed -i'.bak' -e "s#\${VS_NETWORK}#${VS_NETWORK}#" argocd/machinesets.yaml
-    sed -i'.bak' -e "s#\${VS_DATACENTER}#${VS_DATACENTER}#" argocd/machinesets.yaml
-    sed -i'.bak' -e "s#\${VS_DATASTORE}#${VS_DATASTORE}#" argocd/machinesets.yaml
-    sed -i'.bak' -e "s#\${VS_CLUSTER}#${VS_CLUSTER}#" argocd/machinesets.yaml
-    sed -i'.bak' -e "s#\${VS_SERVER}#${VS_SERVER}#" argocd/machinesets.yaml
+    sed -i '' -e 's#.*networkName.*$#            networkName: '$VS_NETWORK'#' argocd/machinesets.yaml
+    sed -i '' -e 's#.*datacenter.*$#           datacenter: '$VS_DATACENTER'#' argocd/machinesets.yaml
+    sed -i '' -e 's#.*datastore.*$#            datastore: '$VS_DATASTORE'#' argocd/machinesets.yaml
+    sed -i '' -e 's#.*cluster.*$#            cluster: '$VS_CLUSTER'#' argocd/machinesets.yaml
+    sed -i '' -e 's#.*server.*$#            server: '$VS_SERVER'#' argocd/machinesets.yaml
 else
-    sed -i'.bak' -e "s#\${REGION}#${region}#" argocd/machinesets.yaml
-    sed -i'.bak' -e "s#\${IMAGE_NAME}#${image}#" argocd/machinesets.yaml
+    sed -i '' -e 's#.*region.*$#            region: '${region}'#' argocd/machinesets.yaml
+    sed -i '' -e 's#.*image.*$#            image: '${image}'#' argocd/machinesets.yaml
 fi
 
-rm argocd/machinesets.yaml.bak
-
-
-sed -i.bak '/infraconfig.yaml/s/^#//g' kustomization.yaml
-rm kustomization.yaml.bak
+sed -i '' -e  '/infraconfig.yaml/s/^#//g' kustomization.yaml
 
 # edit argocd/infraconfig.yaml
-sed -i'.bak' -e "s#\${PLATFORM}#${platform}#" argocd/infraconfig.yaml
-sed -i'.bak' -e "s#\${MANAGED}#${managed}#" argocd/infraconfig.yaml
-rm argocd/infraconfig.yaml.bak
+echo " -  Updating infraconfig"
+sed -i '' -e '/cloudProvider:/ {' -e 'n; s/.*name.*$/            name: '${platform}'/' -e '}'  argocd/infraconfig.yaml
+sed -i '' -e '/cloudProvider:/ {' -e 'n;n; s/.*managed.*$/            managed: '${managed}'/' -e '}'  argocd/infraconfig.yaml
 
-sed -i.bak '/namespace-openshift-storage.yaml/s/^#//g' kustomization.yaml
-sed -i.bak '/storage.yaml/s/^#//g' kustomization.yaml
-rm kustomization.yaml.bak
+sed -i '' -e '/namespace-openshift-storage.yaml/s/^#//g' kustomization.yaml
+sed -i '' -e '/storage.yaml/s/^#//g' kustomization.yaml
+
 # edit argocd/storage.yaml
 newChannel="stable-${majorVer}"
 defsc=$(oc get sc | grep default | awk '{print $1}')
@@ -163,31 +161,22 @@ if [[ "$platform" == "aws" ]]; then
     elif [[ "$platform" == "ibmcloud" ]]; then
     storageClass=${defsc:-"ibmc-vpc-block-10iops-tier"}
     elif [[ "$platform" == "vsphere" ]]; then
-    storageClass=${defsc:-"thin"}
+    storageClass=${defsc};
 fi
 
-if echo $majorVer | grep -E '4.[6-8]' > /dev/null ; then
-    storageChart="ocs-operator"
-elif echo $majorVer | grep -E '4.9|4.[1-9][0-9]|4.[1-9][0-9][0-9]' > /dev/null ; then
-    storageChart="odf-operator"
-fi
-
-sed -i.bak "s#\${STORAGE_CHART_NAME}#${storageChart}#" argocd/storage.yaml
-sed -i.bak "s#\${CHANNEL}#${newChannel}#" argocd/storage.yaml
-sed -i.bak "s#\${STORCLASS}#${storageClass}#" argocd/storage.yaml
-rm argocd/storage.yaml.bak
-
+echo " -  Updating storage"
+sed -i '' -e 's#.*channel.*$#          channel: '${newChannel}'#' argocd/storage.yaml
+sed -i '' -e 's#.*storageClass.*$#          storageClass: '${storageClass}'#' argocd/storage.yaml
 
 popd
 
 pushd "${SCRIPTDIR}/.."
 
-# ${SCRIPTDIR}/sync-manifests.sh
-
+# echo "Updating Git"
 # git add .
 
-# git commit -am "Editing infrastructure definitions"
+# git commit -m "Editing infrastructure definitions"
 
-# git push
+# git push origin
 
 popd
