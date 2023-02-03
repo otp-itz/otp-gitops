@@ -33,6 +33,8 @@ resources:
 
  ## Hypershift
  - argocd/hypershift/bucket-secret.yaml
+ - argocd/hypershift/install-managed-cluster-addon.yaml
+ 
  ## Machine pools for cluster claims and cluster deployments
 #  - argocd/cluster-machinepools/azure-shared-cpd-cluster-storage.yaml
 #  - argocd/cluster-machinepools/azure-large-shared-cpd-cluster-machinepool.yaml
