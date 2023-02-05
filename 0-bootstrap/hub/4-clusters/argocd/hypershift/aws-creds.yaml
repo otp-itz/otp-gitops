@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: aws-creds
+  name: hypershift-aws-creds
   annotations:
     argocd.argoproj.io/sync-wave: "362"
   labels:
