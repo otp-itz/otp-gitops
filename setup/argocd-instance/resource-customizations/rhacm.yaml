@@ -144,3 +144,21 @@ data:
     hs.status = "Progressing"
     hs.message = "Waiting for ManagedClusterAddon"
     return hs
+  resource.customizations.health.cluster.open-cluster-management.io_HypershiftDeployment: |
+    hs = {}
+    hs.status = "Progressing"
+    hs.message = "Waiting for Hypershift deployment..."
+    if obj.status ~= nil and obj.status.conditions ~= nil then
+      for i, condition in ipairs(obj.status.conditions) do  
+        if condition.status == "True" and condition.type == "NodePool" then
+          hs.status = "Healthy"
+          hs.message = "Hypershift deployment available"
+          return hs
+        else
+          hs.status = "Progressing"
+          hs.message = condition.message
+        end
+      end
+    end
+    hs.status = "Progressing"
+    return hs
