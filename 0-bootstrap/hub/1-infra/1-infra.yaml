@@ -52,7 +52,7 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: open-cluster-management-observability
     server: https://kubernetes.default.svc
-  - namespace: ansible-automation-platform
+  - namespace: aap
     server: https://kubernetes.default.svc
   - namespace: openshift-cnv
     server: https://kubernetes.default.svc
