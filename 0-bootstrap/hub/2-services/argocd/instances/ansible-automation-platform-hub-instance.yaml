@@ -9,7 +9,7 @@ metadata:
     gitops.tier.layer: services
 spec:
   destination:
-    namespace: ansible-automation-platform
+    namespace: aap
     server: https://kubernetes.default.svc
   project: services
   source:
