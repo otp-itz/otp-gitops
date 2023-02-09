@@ -25,7 +25,7 @@ resources:
  - argocd/instances/external-secrets.yaml
 
  # Ansible Automation Platform
- - argocd/operators/ansible-automation-platform-operator.yaml
+#  - argocd/operators/ansible-automation-platform-operator.yaml
 #  - argocd/instances/ansible-automation-platform-controller-instance.yaml
 #  - argocd/instances/ansible-automation-platform-hub-instance.yaml
 
