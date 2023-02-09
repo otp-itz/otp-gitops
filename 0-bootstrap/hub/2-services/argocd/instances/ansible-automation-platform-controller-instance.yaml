@@ -18,3 +18,10 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - RespectIgnoreDifferences=true
+  ignoreDifferences:
+    - group: console.openshift.io
+      kind: ConsoleLink
+      jqPathExpressions:
+        - .spec.href
