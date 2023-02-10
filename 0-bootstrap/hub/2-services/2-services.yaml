@@ -136,6 +136,8 @@ spec:
     kind: MultiClusterEngine
   - group: ""
     kind: Namespace
+  - group: "scheduling.k8s.io"
+    kind: PriorityClass
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
