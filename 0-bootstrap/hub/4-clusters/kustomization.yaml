@@ -32,11 +32,11 @@ resources:
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
 
- ## Hypershift
- - argocd/hypershift/bucket-secret.yaml
- - argocd/hypershift/install-managed-cluster-addon.yaml
- - argocd/hypershift/aws-creds.yaml
- - argocd/hypershift/deployment.yaml
+ ## Hypershift on RHACM 2.6
+#  - argocd/hypershift/bucket-secret.yaml
+#  - argocd/hypershift/install-managed-cluster-addon.yaml
+#  - argocd/hypershift/aws-creds.yaml
+#  - argocd/hypershift/deployment.yaml
 
  ## Machine pools for cluster claims and cluster deployments
 #  - argocd/cluster-machinepools/azure-shared-cpd-cluster-storage.yaml
