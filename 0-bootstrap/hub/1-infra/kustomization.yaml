@@ -83,6 +83,9 @@ resources:
  - argocd/rbac/rbac-patch-operator.yaml
  - argocd/namespaces/namespace-patch-operator.yaml
 
+ # Hypershift
+ - argocd/rbac/rbac-hypershift.yaml
+
 patches:
 - target:
     group: argoproj.io
