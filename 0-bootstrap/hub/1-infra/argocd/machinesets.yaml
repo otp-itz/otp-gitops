@@ -18,7 +18,7 @@ spec:
     path: machinesets
     helm:
       values: |
-          infrastructureId: hub-cluster-5l4xr
+          infrastructureId: hub-cluster-5tklh
           # cloudProvider.name set to aws, azure or vsphere
           cloudProvider:
             name: aws
@@ -26,7 +26,7 @@ spec:
           # only for "aws" or "azure" maybe "gcp"
           cloud:
             region: ap-southeast-2
-            image: ami-09ffdc5be9b973be0
+            image: ami-0c30952d150abf53a
           # only for "vsphere" - ignored for other
           vsphere:
             networkName: ${VS_NETWORK}
