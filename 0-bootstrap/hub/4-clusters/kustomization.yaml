@@ -33,7 +33,7 @@ resources:
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
 
  ## Hypershift on RHACM 2.6
-#  - argocd/hypershift/bucket-secret.yaml
+ - argocd/hypershift/bucket-secret.yaml
 #  - argocd/hypershift/install-managed-cluster-addon.yaml
 #  - argocd/hypershift/aws-creds.yaml
 #  - argocd/hypershift/deployment.yaml
