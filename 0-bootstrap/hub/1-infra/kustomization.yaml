@@ -21,7 +21,7 @@ resources:
  - argocd/namespaces/namespace-rhacm-clusterclaims.yaml
  - argocd/rbac/rbac-openshift-gitops-policy.yaml
  # RHACM Metal Provisioner (Not required if Hub is running on Bare-Metal)
- #- argocd/namespaces/namespace-metal-provisioner.yaml
+ - argocd/namespaces/namespace-metal-provisioner.yaml
  
  # Ansible Automation Platform
  - argocd/rbac/rbac-ansible-automation-platform.yaml
