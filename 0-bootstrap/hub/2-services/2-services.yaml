@@ -76,7 +76,7 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: hypershift
     server: https://kubernetes.default.svc
-  - namespace: openshift-rhacm-credentials
+  - namespace: rhacm-credentials
     server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   # TODO: SCC needs to be moved to 1-infra, here for now for artifactory
