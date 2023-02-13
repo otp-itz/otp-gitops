@@ -14,6 +14,8 @@ resources:
  #- argocd/operators/baremetal-operator.yaml
  #- argocd/operators/ironic.yaml
 #  - argocd/operators/hypershift.yaml
+ # Red Hat Multicluster Engine
+ - argocd/operators/multicluster-engine.yaml
  
   # Red Hat Quay Registry
 #  - argocd/operators/quay-registry.yaml
