@@ -20,6 +20,7 @@ resources:
  - argocd/namespaces/namespace-rhacm-clusterpools.yaml
  - argocd/namespaces/namespace-rhacm-clusterclaims.yaml
  - argocd/rbac/rbac-openshift-gitops-policy.yaml
+ - argocd/namespaces/namespace-multicluster-engine.yaml
  # RHACM Metal Provisioner (Not required if Hub is running on Bare-Metal)
  - argocd/namespaces/namespace-metal-provisioner.yaml
  
