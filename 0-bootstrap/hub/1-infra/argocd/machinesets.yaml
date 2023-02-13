@@ -26,7 +26,7 @@ spec:
           # only for "aws" or "azure" maybe "gcp"
           cloud:
             region: ap-southeast-2
-            image: ami-0c30952d150abf53a
+            image: m-p0weku2q8p91c1026n93
           # only for "vsphere" - ignored for other
           vsphere:
             networkName: ${VS_NETWORK}
