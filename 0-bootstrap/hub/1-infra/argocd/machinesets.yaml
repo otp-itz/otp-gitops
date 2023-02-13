@@ -18,7 +18,7 @@ spec:
     path: machinesets
     helm:
       values: |
-          infrastructureId: hub-cluster-5tklh
+          infrastructureId: hub-cluster-nfdn6
           # cloudProvider.name set to aws, azure or vsphere
           cloudProvider:
             name: aws
