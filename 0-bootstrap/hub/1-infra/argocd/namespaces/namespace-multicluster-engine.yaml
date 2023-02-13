@@ -10,7 +10,7 @@ metadata:
     argocd.argoproj.io/sync-wave: "100"
 spec:
   destination:
-    namespace: multicluster-engine-namespace
+    namespace: multicluster-engine
     server: https://kubernetes.default.svc
   project: infra
   source:
