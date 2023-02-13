@@ -88,6 +88,8 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: hypershift
     server: https://kubernetes.default.svc
+  - namespace: multicluster-engine
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   - group: ""
     kind: Namespace

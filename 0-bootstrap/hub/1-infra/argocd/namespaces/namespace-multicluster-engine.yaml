@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: multicluster-engine-namespace
+  namespace: openshift-gitops
+  labels:
+    gitops.tier.layer: infra
+    gitops.tier.group: rhacm
+  annotations:
+    argocd.argoproj.io/sync-wave: "100"
+spec:
+  destination:
+    namespace: multicluster-engine-namespace
+    server: https://kubernetes.default.svc
+  project: infra
+  source:
+    path: namespaces/multicluster-engine-namespace
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
