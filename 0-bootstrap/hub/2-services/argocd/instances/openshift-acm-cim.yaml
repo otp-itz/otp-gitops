@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: services
   source:
-    path: instances/openshift-acm-cim
+    path: instances/openshift-acm-cim/overlays/aws
   syncPolicy:
     automated:
       prune: true
