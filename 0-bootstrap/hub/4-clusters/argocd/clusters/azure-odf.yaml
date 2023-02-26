@@ -29,11 +29,23 @@ spec:
           baseDomain: azure.activation-assets.com
           resource_group: rg-accellerator-toolkit-dns
           sshPublickey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQD7/aPIGi9kLfrZizje0We3lYIgnBD7NYYysryQt7WQqz0vfuMs08GBo3zRTM898fXXA0bXKEULDQShsOt35wYcyR8o2yHcINCvKfXQeUZJs+2ep+mum13AcfLT++7M5F3CxGrgZCtm8uMm3qbnJGQgvsxJ+/ymV5FnG5N6AvvRQlyjD6e/0xTNt6rFOQOt1qcAwKaRDs5WzMe/DnuCR+nPfH0nxKWuSFsqrUGaUFQrPhJBHyxEU47fVew8t/SKdWfZNn26Cv4MmcuvtRaw76OHp7z3lphVhWyz+E3TlHpVITaYLSZ8tgJKEkRNklDitADAFcUYj1LRTyYSTxOYhS9DQd2I/e8Ky6xDKsgMCohnoMKnrYRkPGS8b/2uCkJuudtisrss/moLcHhzJ+g+7C4sgz/V+xBVw7hZG4WrSzBXcY3O0th/68MFjHB3BQT2wWp876dYQAYMHK5HLUXG9PxH5MunyvD8kiXFAlhN74g2HI1K7nT2YedE2bFL3xhFZai+WGsOsXz83VUoF+4HtWLSbnHjpTs4Zt8Uhcld88WUSb8RJGBAmKookPp/ixNvFfFM2hK27lNGwd1KrpKSet1Z8cjSuoPvF2s7oOU+/umjK6gu1wc9ZN62yfCBrFgziJodGh04iAGeem6ZEKLVOwkukI074t3pvik63aiE0j3IRQ== cong.nguyen@au1.ibm.com
+        masters:
+          architecture: amd64
+          count: 3
+          diskSize: 128
+          machineType: Standard_D8s_v3
+        workers:
+          architecture: amd64
+          count: 3
+          diskSize: 256
+          machineType: Standard_D16s_v3
         storage:
           enabled: true
           storageClassName: managed-premium
           storageClusterSize: 2Ti
           odfVersion: stable-4.12
+          diskSize: 256
+          machineType: Standard_D16_v3
         externalSecretKeys:
           azure: 
             azureOsServicePrincipal: 4f5caf7a-174c-5890-84b2-d7cffc7a4be7
