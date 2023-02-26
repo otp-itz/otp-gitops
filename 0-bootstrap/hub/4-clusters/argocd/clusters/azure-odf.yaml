@@ -33,6 +33,7 @@ spec:
           enabled: true
           storageClassName: managed-premium
           storageClusterSize: 2Ti
+          odfVersion: stable-4.12
         externalSecretKeys:
           azure: 
             azureOsServicePrincipal: 4f5caf7a-174c-5890-84b2-d7cffc7a4be7
