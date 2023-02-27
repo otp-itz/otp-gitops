@@ -40,3 +40,5 @@ spec:
           count: 3
           diskSize: 256
           machineType: Standard_D16s_v3
+        
+        poolSize: 0
