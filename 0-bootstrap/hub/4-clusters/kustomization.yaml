@@ -31,7 +31,7 @@ resources:
 
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
- - argocd/clusters/azure-odf.yaml
+#  - argocd/clusters/azure-odf.yaml
 
  ## Hypershift on RHACM 2.6
 #  - argocd/hypershift/bucket-secret.yaml
