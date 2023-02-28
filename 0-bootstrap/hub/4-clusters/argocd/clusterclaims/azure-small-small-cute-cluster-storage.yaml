@@ -12,7 +12,7 @@ metadata:
               name: "azure"
               managed: false
             cloud:
-              clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "shared-cpd-cluster").spec.namespace }}
+              clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
   labels:
     gitops.tier.layer: clusters
   finalizers:
