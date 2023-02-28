@@ -22,13 +22,7 @@ resources:
 
  ## ClusterClaims
  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
- - argocd/clusterclaims/test-configmap.yaml
-#  - argocd/clusterclaims/azure-small-small-cute-cluster-storage.yaml
- ## Example : - argocd/clusterclaims/<env>/<cloud>/<clusterclaimname.yaml> 
- #- argocd/clusterclaims/dev/aws/project-simple.yaml
- #- argocd/clusterclaims/prod/aws/project-simple.yaml
- #- argocd/clusterclaims/cicd/aws/project-cicd.yaml
- #- argocd/clusterclaims/test/aws/project-easy.yaml
+ - argocd/machinepools-appset/azure-machinepools.yaml
 
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>

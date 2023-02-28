@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: azure-machinepoolls
+spec:
+  generators:
+  - list:
+      elements:
+        - clusterDeploymentRef: azure-small-clusterpool-lw52x
+          cloudProvider: azure
+  template:
+    metadata:
+      name: '{{clusterDeploymentRef}}-storage'
+    spec:
+      project: clusters
+      source:
+        repoURL: https://github.com/otp-itz/otp-gitops-clusters.git
+        path: machinepools
+        helm:
+          values: |
+            cloudProvider:
+              name: "azure" # aws, azure, ibmcloud or vsphere
+              managed: false # for roks, aro, rosa set to true
+            cloud:
+              clusterName: {{ clusterDeploymentRef }}
+      destination:
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{ clusterDeploymentRef }}'
