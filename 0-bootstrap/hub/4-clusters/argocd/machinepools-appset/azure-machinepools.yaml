@@ -4,13 +4,13 @@ metadata:
   name: azure-machinepoolls
 spec:
   generators:
-  - list:
-      elements:
-        - clusterDeploymentRef: azure-small-clusterpool-lw52x
-          cloudProvider: azure
+  - clusters:
+      selector:
+        matchLabels:
+          cloud: Azure
   template:
     metadata:
-      name: '{{clusterDeploymentRef}}-storage'
+      name: '{{name}}-storage'
     spec:
       project: clusters
       source:
@@ -22,7 +22,7 @@ spec:
               name: "azure" # aws, azure, ibmcloud or vsphere
               managed: false # for roks, aro, rosa set to true
             cloud:
-              clusterName: {{ clusterDeploymentRef }}
+              clusterName: {{ server }}
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: '{{ clusterDeploymentRef }}'
+        namespace: '{{ server }}'
