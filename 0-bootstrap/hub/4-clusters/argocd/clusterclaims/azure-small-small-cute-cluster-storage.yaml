@@ -4,6 +4,16 @@ metadata:
   name: azure-small-cute-cluster-storage
   annotations:
     argocd.argoproj.io/sync-wave: "360"
+    "redhat-cop.redhat.io/patch": |
+      spec:
+        source:
+          helm:
+            values: |
+              cloudProvider:
+                name: "azure"
+                managed: false
+              cloud:
+                clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
   labels:
     gitops.tier.layer: clusters
   finalizers:
@@ -21,28 +31,5 @@ spec:
   project: clusters
   source:
     path: machinepools
----
-# Requires Red Hat COP Patch operator
-apiVersion: redhatcop.redhat.io/v1alpha1
-kind: Patch
-metadata:
-  name: patch-small-cute-cluster-storage
-  namespace: openshift-gitops
-spec:
-  patches:
-    patch-small-cute-cluster-storage:
-      targetObjectRef:
-        apiVersion: argoproj.io/v1alpha1
-        kind: Application
-        name: azure-small-cute-cluster-storage
-      patchTemplate: |
-        spec:
-          source:
-            helm:
-              values: |
-                cloudProvider:
-                  name: "azure"
-                  managed: false
-                cloud:
-                  clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
-      patchType: application/json-patch+json
+    helm:
+      values: << values >>
