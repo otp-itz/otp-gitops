@@ -21,7 +21,8 @@ resources:
  #- argocd/clusterpools/prod/aws/aws-prod-pool/aws-prod-pool.yaml 
 
  ## ClusterClaims
-#  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
+ - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
+ - argocd/clusterclaims/azure-small-small-cute-cluster-storage.yaml
  ## Example : - argocd/clusterclaims/<env>/<cloud>/<clusterclaimname.yaml> 
  #- argocd/clusterclaims/dev/aws/project-simple.yaml
  #- argocd/clusterclaims/prod/aws/project-simple.yaml
@@ -37,10 +38,6 @@ resources:
 #  - argocd/hypershift/install-managed-cluster-addon.yaml
 #  - argocd/hypershift/aws-creds.yaml
 #  - argocd/hypershift/deployment.yaml
-
- ## Machine pools for cluster claims and cluster deployments
-#  - argocd/cluster-machinepools/azure-shared-cpd-cluster-storage.yaml
-#  - argocd/cluster-machinepools/azure-large-shared-cpd-cluster-machinepool.yaml
 
  ### AWS
  #- argocd/clusters/cicd/aws/aws-cicd/aws-cicd.yaml
