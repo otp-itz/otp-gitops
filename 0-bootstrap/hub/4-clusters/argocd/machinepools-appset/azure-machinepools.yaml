@@ -7,7 +7,7 @@ spec:
   - clusters:
       selector:
         matchLabels:
-          cloud: Azure
+          apps.open-cluster-management.io/acm-cluster: "true"
   template:
     metadata:
       name: '{{name}}-storage'
