@@ -45,4 +45,4 @@ spec:
                   managed: false
                 cloud:
                   clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
-      patchType: application/strategic-merge-patch+json
+      patchType: application/json-patch+json
