@@ -22,7 +22,7 @@ spec:
               name: "azure" # aws, azure, ibmcloud or vsphere
               managed: false # for roks, aro, rosa set to true
             cloud:
-              clusterName: {{ server }}
+              clusterName: {{ name }}
       destination:
         server: 'https://kubernetes.default.svc'
-        namespace: '{{ server }}'
+        namespace: '{{ name }}'
