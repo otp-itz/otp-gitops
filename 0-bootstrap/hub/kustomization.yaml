@@ -69,6 +69,9 @@ patches:
     - op: add
       path: /spec/sourceRepos/-
       value: https://github.com/otp-itz/otp-gitops-clusters.git
+    - op: add
+      path: /spec/sourceRepos/-
+      value: https://github.com/otp-itz/otp-gitops-infra.git
 - target:
     group: argoproj.io
     kind: AppProject

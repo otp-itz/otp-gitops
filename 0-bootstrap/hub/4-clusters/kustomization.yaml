@@ -22,7 +22,9 @@ resources:
 
  ## ClusterClaims
  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
- - argocd/machinepools-appset/azure-machinepools.yaml
+ 
+ ## Machinepools
+ - argocd/machinepools/machinepools.yaml
 
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
