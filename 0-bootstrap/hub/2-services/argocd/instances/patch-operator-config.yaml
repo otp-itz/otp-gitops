@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: patch-operator-creation-time-config
+  name: patch-operator-config
   annotations:
     argocd.argoproj.io/sync-wave: "201"
   labels:
@@ -15,7 +15,7 @@ spec:
     server: https://kubernetes.default.svc
   project: services
   source:
-    path: instances/patch-operator-creation-time-config
+    path: instances/patch-operator-config
   syncPolicy:
     automated:
       prune: true

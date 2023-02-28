@@ -97,7 +97,7 @@ resources:
 
  # RHCOP Patch operator
  - argocd/operators/patch-operator.yaml
- - argocd/instances/patch-operator-creation-time-config.yaml
+ - argocd/instances/patch-operator-config.yaml
 patches:
 - target:
     group: argoproj.io
