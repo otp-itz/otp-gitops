@@ -6,13 +6,14 @@ metadata:
     argocd.argoproj.io/sync-wave: "360"
     "redhat-cop.redhat.io/patch": |
       spec:
-        helm:
-          values: |
-            cloudProvider:
-              name: "azure"
-              managed: false
-            cloud:
-              clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
+        source:
+          helm
+            values: |
+              cloudProvider:
+                name: "azure"
+                managed: false
+              cloud:
+                clusterName: {{ (lookup "hive.openshift.io/v1" "ClusterClaim" "rhacm-clusterpools" "small-cute-cluster").spec.namespace }}
   labels:
     gitops.tier.layer: clusters
   finalizers:
