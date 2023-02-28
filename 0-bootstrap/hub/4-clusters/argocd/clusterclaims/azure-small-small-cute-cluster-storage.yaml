@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: azure-small-cute-cluster
+  name: azure-small-cute-cluster-storage
   annotations:
     argocd.argoproj.io/sync-wave: "360"
     "redhat-cop.redhat.io/patch": |
