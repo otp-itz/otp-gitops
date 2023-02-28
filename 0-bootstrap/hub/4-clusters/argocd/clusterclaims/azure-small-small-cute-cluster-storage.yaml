@@ -7,7 +7,7 @@ metadata:
     "redhat-cop.redhat.io/patch": |
       spec:
         source:
-          helm
+          helm:
             values: |
               cloudProvider:
                 name: "azure"
