@@ -26,6 +26,9 @@ resources:
  ## Machinepools
  - argocd/machinepools/machinepools.yaml
 
+ ## Storage
+ - argocd/storage/storage.yaml
+
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
 #  - argocd/clusters/azure-odf.yaml
