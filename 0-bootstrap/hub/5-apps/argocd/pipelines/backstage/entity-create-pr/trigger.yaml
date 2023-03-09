@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: apps-pipeline-backstage-create-pr-triggers
+  annotations:
+    argocd.argoproj.io/sync-wave: "552"
+  labels:
+    gitops.tier.layer: applications
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  destination:
+    namespace: backstage-integration
+    server: https://kubernetes.default.svc
+  project: applications
+  source:
+    path: backstage-pipelines/triggers
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true

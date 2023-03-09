@@ -1,24 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-machinepool-clusterclaim-trigger
+  name: apps-pipeline-backstage-tasks
   annotations:
-    argocd.argoproj.io/sync-wave: "551"
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
+    argocd.argoproj.io/sync-wave: "550"
   labels:
     gitops.tier.layer: applications
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: machinepools-pipeline
+    namespace: backstage-integration
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: machinepools-pipeline/trigger/clusterclaim
+    path: backstage-pipelines/tasks
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
     syncOptions:
     - CreateNamespace=true

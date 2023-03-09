@@ -2,8 +2,8 @@ resources:
  ## Optional Components. These are NOT required for OTP, but can be enabled.
 
  ## WAIOps Infrastructure Automation Pipelines
- #- argocd/pipelines/tekton-mcm-gitops.yaml
- #- argocd/pipelines/tekton-mcm-providers.yaml
+ #- argocd/pipelines/mcm/tekton-mcm-gitops.yaml
+ #- argocd/pipelines/mcm/tekton-mcm-providers.yaml
 
 
  ## Create Instana Virtual Machines
@@ -24,16 +24,15 @@ resources:
  #- argocd/cloudpaks/cp4i/cp4i.yaml
 
  ## Pipelines
-- argocd/pipelines/pipeline-sa-crb-view.yaml
+- argocd/pipelines/pipeline-sa-view-crb/pipeline-sa-crb-view.yaml
 
-- argocd/pipelines/clusterclaim-tasks.yaml
-- argocd/pipelines/clusterclaim-pipeline.yaml
-- argocd/pipelines/clusterclaim-trigger.yaml
+- argocd/pipelines/cluster-claim-service/clusterclaim-tasks.yaml
+- argocd/pipelines/cluster-claim-service/clusterclaim-pipeline.yaml
+- argocd/pipelines/cluster-claim-service/clusterclaim-trigger.yaml
 
-- argocd/pipelines/machinepool-clusterclaim-pipeline.yaml
-- argocd/pipelines/machinepool-clusterclaim-trigger.yaml
-
-- argocd/pipelines/gitops-repo-deploy-pipeline.yaml
+- argocd/pipelines/backstage/entity-create-pr/clusterclaim-tasks.yaml
+- argocd/pipelines/backstage/entity-create-pr/clusterclaim-pipeline.yaml
+- argocd/pipelines/backstage/entity-create-pr/clusterclaim-trigger.yaml
 patches:
 - target:
     group: argoproj.io

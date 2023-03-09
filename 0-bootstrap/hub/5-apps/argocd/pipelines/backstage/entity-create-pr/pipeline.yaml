@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: apps-gitops-repo-deploy-pipeline
+  name: apps-pipeline-backstage-entity-create
   annotations:
     argocd.argoproj.io/sync-wave: "551"
     argocd.argoproj.io/compare-options: IgnoreExtraneous
@@ -11,14 +11,14 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: gitops-repo-deploy-pipeline
+    namespace: backstage-integration
     server: https://kubernetes.default.svc
   project: applications
   source:
-    path: gitops-repo-deploy-pipeline/pipeline
+    path: backstage-pipelines/pipelines
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
     syncOptions:
     - CreateNamespace=true
