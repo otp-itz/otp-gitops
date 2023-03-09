@@ -30,9 +30,10 @@ resources:
 - argocd/pipelines/cluster-claim-service/clusterclaim-pipeline.yaml
 - argocd/pipelines/cluster-claim-service/clusterclaim-trigger.yaml
 
-- argocd/pipelines/backstage/entity-create-pr/clusterclaim-tasks.yaml
-- argocd/pipelines/backstage/entity-create-pr/clusterclaim-pipeline.yaml
-- argocd/pipelines/backstage/entity-create-pr/clusterclaim-trigger.yaml
+- argocd/pipelines/backstage/entity-create-pr/credentials.yaml
+- argocd/pipelines/backstage/entity-create-pr/tasks.yaml
+- argocd/pipelines/backstage/entity-create-pr/pipeline.yaml
+- argocd/pipelines/backstage/entity-create-pr/trigger.yaml
 patches:
 - target:
     group: argoproj.io

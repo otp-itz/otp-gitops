@@ -11,7 +11,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: cluster-claimer-service
+    namespace: cluster-claim-service
     server: https://kubernetes.default.svc
   project: applications
   source:
