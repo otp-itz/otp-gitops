@@ -21,7 +21,7 @@ resources:
  #- argocd/clusterpools/prod/aws/aws-prod-pool/aws-prod-pool.yaml 
 
  ## ClusterClaims
-#  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
+  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
  
  ## Machinepools
  - argocd/machinepools/machinepools.yaml
