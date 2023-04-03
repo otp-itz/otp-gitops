@@ -98,6 +98,10 @@ resources:
  # RHCOP Patch operator
  - argocd/operators/patch-operator.yaml
  - argocd/instances/patch-operator-config.yaml
+
+ # OpenShift Serverless
+ - argocd/operators/openshift-serverless.yaml
+
 patches:
 - target:
     group: argoproj.io
