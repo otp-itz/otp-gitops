@@ -10,7 +10,7 @@ resources:
  #- argocd/infra/providers/rhacm/rhocm/sealed-secrets/rhocm.yaml 
 
  ## ClusterPools
-#  - argocd/clusterpools/azure/large.yaml
+ - argocd/clusterpools/azure/large.yaml
 #  - argocd/clusterpools/azure/medium.yaml
 #  - argocd/clusterpools/azure/small.yaml
  ## Example: - argocd/clusterpools/<env>/<cloud>/<clusterpoolname>/<clusterpoolname.yaml>
