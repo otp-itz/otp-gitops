@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: openshift-serverless-serving-instance
+  annotations:
+    argocd.argoproj.io/sync-wave: "250"
+  labels:
+    gitops.tier.group: otp
+    gitops.tier.layer: services
+spec:
+  destination:
+    namespace: knative-serving
+    server: https://kubernetes.default.svc
+  project: services
+  source:
+    path: instances/openshift-serverless/knative-serving/
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

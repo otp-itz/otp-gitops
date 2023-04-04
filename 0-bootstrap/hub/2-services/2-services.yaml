@@ -82,6 +82,10 @@ spec:
     server: https://kubernetes.default.svc
   - namespace: openshift-ingress-operator
     server: https://kubernetes.default.svc
+  - namespace: knative-serving
+    server: https://kubernetes.default.svc
+  - namespace: knative-eventing
+    server: https://kubernetes.default.svc
   clusterResourceWhitelist:
   # TODO: SCC needs to be moved to 1-infra, here for now for artifactory
   - group: "security.openshift.io"
@@ -146,6 +150,10 @@ spec:
     kind: PriorityClass
   - group: "metal3.io"
     kind: Provisioning
+  - group: operator.knative.dev
+    kind: KnativeServing
+  - group: operator.knative.dev
+    kind: KnativeEventing
   roles:
   # A role which provides read-only access to all applications in the project
   - name: read-only
