@@ -87,6 +87,9 @@ resources:
  # Hypershift
  #- argocd/rbac/rbac-hypershift.yaml
 
+ # OpenShift Serverless
+ - argocd/rbac/rbac-openshift-serverless.yaml
+
 patches:
 - target:
     group: argoproj.io
