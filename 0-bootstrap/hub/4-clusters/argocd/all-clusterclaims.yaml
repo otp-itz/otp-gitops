@@ -5,7 +5,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "460"
   labels:
-    gitops.tier.layer: clusters
+    gitops.tier.layer: user-clusters
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
