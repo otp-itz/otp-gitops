@@ -1,0 +1,15 @@
+kind: Kustomization
+apiVersion: kustomize.config.k8s.io/v1beta1
+
+patches:
+- target:
+    group: argoproj.io
+    kind: Application
+    labelSelector: "gitops.tier.layer=clusters"
+  patch: |-
+    - op: add
+      path: /spec/source/repoURL
+      value: https://github.com/otp-itz/otp-gitops-clusters.git
+    - op: add
+      path: /spec/source/targetRevision
+      value: master
