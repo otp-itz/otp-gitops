@@ -21,7 +21,7 @@ spec:
     path: clusterpools/azure/
     helm:
       values: |
-        clusterpoolName: azure-azure-32x128.256gb-clusterpool
+        clusterpoolName: azure-32x128.256gb-clusterpool
         imageName: 4.10.55
         provider:
           region: eastus
