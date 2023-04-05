@@ -22,4 +22,4 @@ spec:
     helm:
       values: |
         odfVersion: '4.10'
-        odfSizeGB: 256
+        odfSizeGB: 2048
