@@ -28,3 +28,5 @@ spec:
       values: |
         clusterClaimName: maximo-test
         clusterPoolName: azure-32x128.256gb-clusterpool
+    repoUrl: https://github.com/otp-itz/otp-gitops-clusters.git
+  
