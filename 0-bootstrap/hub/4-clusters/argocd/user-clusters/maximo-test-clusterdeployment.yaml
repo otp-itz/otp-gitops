@@ -19,7 +19,7 @@ spec:
   project: clusters
   source:
     path: clusters/deploy/external-secrets/azure/
-    repoURL: https://github.com/otp-itz/otp-itz-clusters
+    repoURL: https://github.com/otp-itz/otp-gitops-clusters.git
     helm:
       values: |
         cluster: maximo-test
