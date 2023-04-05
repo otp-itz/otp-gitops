@@ -15,7 +15,7 @@ resources:
 
  ## ClusterClaims
 #  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
- - argocd/all-clusterclaims.yaml
+ - argocd/user-clusters.yaml
  
  ## Machinepools
  - argocd/machinepools/machinepools.yaml

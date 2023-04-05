@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: all-clusterclaims
+  name: user-clusters
   annotations:
     argocd.argoproj.io/sync-wave: "460"
   labels:
@@ -18,5 +18,5 @@ spec:
     server: https://kubernetes.default.svc
   project: clusters
   source:
-    path: 0-bootstrap/hub/4-clusters/argocd/clusterclaims
+    path: 0-bootstrap/hub/4-clusters/argocd/user-clusters
     repoURL: 'https://github.com/otp-itz/otp-gitops.git'
