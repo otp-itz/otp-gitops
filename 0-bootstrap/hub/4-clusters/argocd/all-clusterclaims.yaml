@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: all-clusterclaims
+  annotations:
+    argocd.argoproj.io/sync-wave: "460"
+  labels:
+    gitops.tier.layer: clusters
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  destination:
+    namespace: openshift-gitops
+    server: https://kubernetes.default.svc
+  project: clusters
+  source:
+    path: 0-bootstrap/hub/4-clusters/argocd/clusterclaims
+    repoURL: 'https://github.com/otp-itz/otp-gitops.git'
