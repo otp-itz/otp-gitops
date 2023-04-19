@@ -32,7 +32,7 @@ resources:
 #  - argocd/namespaces/namespace-openshift-acs.yaml
 
   # Quay Registry
-#  - argocd/namespaces/namespace-quay-registry.yaml
+ - argocd/namespaces/namespace-quay-registry.yaml
  
  # OpenShift Data Foundation aka OpenShift Container Storage
  #- unneeded for IBM Cloud ROKS with ODF add-on configured
