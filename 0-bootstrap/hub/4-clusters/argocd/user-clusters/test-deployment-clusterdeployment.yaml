@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: clusters-maximo-test
+  name: clusters-test-deployment
   annotations:
     argocd.argoproj.io/sync-wave: "450"
   labels:
@@ -22,7 +22,7 @@ spec:
     repoURL: https://github.com/otp-itz/otp-gitops-clusters.git
     helm:
       values: |
-        cluster: maximo-test
+        cluster: test-deployment
         imageName: 4.10.55
         powerState: Running
         provider:
@@ -39,7 +39,7 @@ spec:
           architecture: amd64
           count: 3
           diskSize: 256
-          machineType: Standard_D32s_v3
+          machineType: Standard_D16s_v3
         secrets:
             azureSecrets:
               azureOsServicePrincipalRef: 4f5caf7a-174c-5890-84b2-d7cffc7a4be7
