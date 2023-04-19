@@ -18,10 +18,10 @@ resources:
 #  - argocd/operators/multicluster-engine.yaml
  
   # Red Hat Quay Registry
- - argocd/operators/quay-registry.yaml
- - argocd/instances/quay-registry-instance.yaml
- - argocd/operators/quay-container-security.yaml
- - argocd/operators/quay-bridge-operator.yaml
+#  - argocd/operators/quay-registry.yaml
+#  - argocd/instances/quay-registry-instance.yaml
+#  - argocd/operators/quay-container-security.yaml
+#  - argocd/operators/quay-bridge-operator.yaml
 
  # Secrets Managment
  - argocd/operators/external-secrets.yaml
