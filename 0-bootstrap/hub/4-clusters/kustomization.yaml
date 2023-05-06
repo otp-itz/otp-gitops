@@ -10,18 +10,18 @@ resources:
  #- argocd/infra/providers/rhacm/rhocm/sealed-secrets/rhocm.yaml 
 
  ## ClusterPools
- - argocd/clusterpools/azure/4.10/16x64.256gb.yaml
- - argocd/clusterpools/azure/4.10/32x128.256gb.yaml
+#  - argocd/clusterpools/azure/4.10/16x64.256gb.yaml
+#  - argocd/clusterpools/azure/4.10/32x128.256gb.yaml
 
  ## ClusterClaims
 #  - argocd/clusterclaims/azure-small-small-cute-cluster.yaml
  - argocd/user-clusters.yaml
  
  ## Machinepools
- - argocd/machinepools/machinepools.yaml
+#  - argocd/machinepools/machinepools.yaml
 
  ## Storage
- - argocd/storage/storage.yaml
+#  - argocd/storage/storage.yaml
 
  ## ClusterDeployments
  ## Example : - argocd/<env>/<cloud>/<clustername>/<clustername.yaml>
